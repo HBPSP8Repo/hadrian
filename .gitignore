@@ -1,2 +1,7 @@
 pfa
 scoringengine_org
+.idea/
+dist/
+build/
+titus.egg-info/
+*.pyc

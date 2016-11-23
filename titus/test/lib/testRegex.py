@@ -41,7 +41,7 @@ action:
             engine.action("abcccdc")
         memusage_2 = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
 
-        print("\nMemory usage before: {0}, after: {1}".format(memusage_1, memusage_2))
+        print(("\nMemory usage before: {0}, after: {1}".format(memusage_1, memusage_2)))
 
 
     def testPosix(self):

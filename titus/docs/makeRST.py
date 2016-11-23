@@ -2,6 +2,7 @@
 
 import importlib
 import inspect
+import collections
 
 modules = [
     "titus.datatype",
@@ -32,11 +33,11 @@ modules = [
 modules = {name: importlib.import_module(name) for name in modules}
 
 documented = []
-for moduleName, module in modules.items():
+for moduleName, module in list(modules.items()):
     for objName in dir(module):
         obj = getattr(module, objName)
-        if not objName.startswith("_") and callable(obj) and obj.__module__ == moduleName:
-            print objName, obj
+        if not objName.startswith("_") and isinstance(obj, collections.Callable) and obj.__module__ == moduleName:
+            print(objName, obj)
             documented.append(moduleName + "." + objName)
             if inspect.isclass(obj):
                 open(moduleName + "." + objName + ".rst", "w").write('''
