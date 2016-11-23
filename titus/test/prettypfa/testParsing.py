@@ -507,7 +507,7 @@ action: apply(f(2), 1, 2, 3)
         self.assertEqual(titus.prettypfa.jsonNode('''
 input: double
 output: double
-action: cmp(1, 2)
+action: (1 > 2) - (1 < 2)
 ''', lineNumbers=False, check=False)["action"][0], {"cmp": [1, 2]})
 
         self.assertEqual(titus.prettypfa.jsonNode('''
